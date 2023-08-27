@@ -19,6 +19,7 @@ depends=('bc'
          'boost'
          'procps-ng'
          'psmisc'
+         'gtk3'
          'libusb')
 makedepends=('intltool'
             'git'
