@@ -18,7 +18,8 @@ depends=('bc'
          'xorg-server'
          'boost'
          'procps-ng'
-         'psmisc')
+         'psmisc'
+         'libusb')
 makedepends=('intltool'
             'git'
             'python')
