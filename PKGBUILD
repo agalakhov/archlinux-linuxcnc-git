@@ -53,7 +53,7 @@ pkgver() {
 
 prepare() {
   cd "${srcdir}/${pkgname}/src"
-  echo "export TCLLIBPATH=$TCLLIBPATH:/usr/lib/tcltk/linuxcnc" > ${pkgname}.sh
+  echo "export TCLLIBPATH=/usr/lib/tcltk/linuxcnc" > ${pkgname}.sh
   find . -iname fixpaths.py -o -iname checkglade -o \
    -iname update_ini | xargs perl -p -i -e "s/python/python3/"
   patch -Np2 -i "${srcdir}/libtirpc.patch"
@@ -66,6 +66,7 @@ prepare() {
    --with-python=/usr/bin/python3
 
   sed -i 's|$(DESTDIR)$(sysconfdir)/linuxcnc|$(DESTDIR)/etc/linuxcnc|g' Makefile
+  sed -i 's|sysconfdir=${prefix}/etc|sysconfdir=/etc|' ../scripts/realtime
 }
 
 build () {
