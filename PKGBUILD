@@ -14,9 +14,12 @@ depends=('bc'
          'python-yapps2'
          'python-gobject'
          'tkimg'
-#          'python-gtkglext'
+#         'python-gtkglext'
          'tclx'
-         'xorg-server'
+#         'xorg-server'
+         'glu'
+#         'python-opengl'
+#         'freeglut'
          'boost'
          'procps-ng'
          'psmisc'
@@ -56,9 +59,9 @@ prepare() {
   sed -i 's|$(DESTDIR)$(sysconfdir)/linuxcnc|$(DESTDIR)/etc/linuxcnc|g' Makefile.orig
   ./autogen.sh
   ./configure --with-realtime=uspace \
-   --without-libmodbus --prefix=/usr \
-   --with-python=/usr/bin/python3 \
-   --enable-non-distributable=yes
+   --without-libmodbus --disable-python --prefix=/usr \
+   --enable-non-distributable=yes \
+   --with-python=/usr/bin/python3
 
   sed -i 's|$(DESTDIR)$(sysconfdir)/linuxcnc|$(DESTDIR)/etc/linuxcnc|g' Makefile
 }
