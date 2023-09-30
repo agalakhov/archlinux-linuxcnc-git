@@ -33,7 +33,7 @@ makedepends=('intltool'
 provides=('linuxcnc')
 conflicts=('linuxcnc' 'linuxcnc-bin')
 options=('!strip')
-source=("${pkgname}::git+https://github.com/LinuxCNC/linuxcnc"
+source=("${pkgname}::git+https://github.com/agalakhov/linuxcnc#branch=sherline-prod"
         'libtirpc.patch')
 sha256sums=('SKIP'
             'bc95bafd67fad1c1d3722261bc586cdc612ec9e1597fadb95fa825c10550ac2c')
